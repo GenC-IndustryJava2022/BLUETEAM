@@ -1,7 +1,7 @@
 package com.cognizant.academy.blueteam;
 import java.sql.*;
 public class DBConnection {
-private static final String JDBC_URL="jdbc:derby:C:\\Users\\955514\\OnlineStore\\Store;create=true";
+private static final String JDBC_URL="jdbc:derby:C:\\dev\\BLUETEAM\\OnlineStoreDB;create=true";
 
 Connection conn;
 
