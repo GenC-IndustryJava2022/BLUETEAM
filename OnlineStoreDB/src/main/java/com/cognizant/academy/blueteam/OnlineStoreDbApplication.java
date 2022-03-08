@@ -19,7 +19,7 @@ public class OnlineStoreDbApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineStoreDbApplication.class, args);
 		ApplicationContext context= new ClassPathXmlApplicationContext("beans.xml");
-		JdbcCategoryDAO C= (JdbcCategoryDAO) context.getBean("CategoryDAO");
+		CategoryService C= (CategoryService) context.getBean("CategoryDAO");
 		JdbcProductDAO P= (JdbcProductDAO) context.getBean("ProductDAO");
 		JdbcCartDAO Car= (JdbcCartDAO) context.getBean("CartDAO");
 		JdbcActiveProductsDAO A= (JdbcActiveProductsDAO) context.getBean("ActiveProductsDAO");
