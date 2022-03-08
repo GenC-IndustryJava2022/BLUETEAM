@@ -1,8 +1,13 @@
 package com.cognizant.academy.blueteam;
 
 import java.util.*;
+import javax.persistence.*;
 
-public class Product implements Comparable{
+@Entity
+public class Product implements Comparable<Product>{
+
+	
+@Id
 private int productId;
 private String name;
 private double price;
@@ -56,8 +61,7 @@ public void setCategoryId(int categoryId) {
 	this.categoryId = categoryId;
 }
 @Override
-public int compareTo(Object o) {
-	Product p=(Product)o;
+public int compareTo(Product p) {
 	return this.getName().compareTo(p.getName());
 }
 @Override

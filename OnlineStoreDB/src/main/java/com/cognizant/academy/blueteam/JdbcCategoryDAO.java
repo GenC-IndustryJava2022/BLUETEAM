@@ -2,7 +2,11 @@ package com.cognizant.academy.blueteam;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.*;
 
@@ -87,4 +91,25 @@ public static String getJdbcUrl() {
 		});
 	}
 
+	public List<Category> findAll(){
+		try {
+			ArrayList<Category> list=new ArrayList<>();
+			Statement stmt=jdbcTemplate.getDataSource().getConnection().createStatement();
+			String select="SELECT * FROM CATEGORY";
+			ResultSet rs= stmt.executeQuery(select);
+			while(rs.next()) {
+				int ID= rs.getInt("CATEGORY_ID");
+				String name=rs.getString("NAME");
+				String Himage=rs.getString("HEADER_IMAGE");
+				list.add(new Category(ID,name,Himage));
+			}
+			return list;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
 }

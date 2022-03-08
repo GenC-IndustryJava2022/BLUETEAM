@@ -1,8 +1,11 @@
 package com.cognizant.academy.blueteam;
 
-import java.sql.Connection;
+import java.sql.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -68,6 +71,7 @@ public static String getJdbcUrl() {
 		jdbcTemplate.update(sql,new PreparedStatementSetter() {
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException{
+				
 				ps.setInt(1, P.getProductId());
 				ps.setString(2, P.getName());
 				ps.setDouble(3, P.getPrice());
@@ -89,6 +93,52 @@ public static String getJdbcUrl() {
 				ps.setInt(1, P.getProductId());
 			}
 		});
+	}
+	
+	public List<Product> findAll(){
+		try {
+			ArrayList<Product> list=new ArrayList<>();
+			Statement stmt=jdbcTemplate.getDataSource().getConnection().createStatement();
+			String select="SELECT * FROM PRODUCT";
+			ResultSet rs= stmt.executeQuery(select);
+			while(rs.next()) {
+				int ID= rs.getInt("PRODUCT_ID");
+				String name=rs.getString("NAME");
+				double price=rs.getDouble("PRICE");
+				String image=rs.getString("IMAGE");
+				String desc=rs.getString("DESCRIPTION");
+				int catID=rs.getInt("CATEGORY_ID");
+				list.add(new Product(ID,name,price,image,desc,catID));
+			}
+			return list;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public Product find(int Id) {
+		try {
+			ArrayList<Product> list=new ArrayList<>();
+			Statement stmt=jdbcTemplate.getDataSource().getConnection().createStatement();
+			String select="SELECT * FROM PRODUCT";
+			ResultSet rs= stmt.executeQuery(select);
+			while(rs.next()) {
+				int ID= rs.getInt("PRODUCT_ID");
+				String name=rs.getString("NAME");
+				double price=rs.getDouble("PRICE");
+				String image=rs.getString("IMAGE");
+				String desc=rs.getString("DESCRIPTION");
+				int catID=rs.getInt("CATEGORY_ID");
+				list.add(new Product(ID,name,price,image,desc,catID));
+			}
+			return list;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

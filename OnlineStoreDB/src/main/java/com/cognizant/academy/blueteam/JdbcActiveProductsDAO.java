@@ -13,7 +13,8 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 
-public class JdbcCartDAO implements CartDAO {
+public class JdbcActiveProductsDAO {
+
 	private static final String JDBC_URL="jdbc:derby:C:\\Users\\955514\\OnlineStore\\Store;create=true";
 	private Connection conn;
 	private DataSource dataSource;
@@ -48,48 +49,53 @@ public static String getJdbcUrl() {
 	return JDBC_URL;
 }
 
-	
-public void insert(Cart C) {
-	String sql="Insert into CART (CART_ID,BROWSER_INFO) values (?,?)";
+public void insert(ActiveProducts A) {
+	String sql="Insert into ACTIVE_PRODUCTS (ACTIVE_PRODUCTS_ID,CART_ID,PRODUCT_ID,QUANTITY) values (?,?,?,?)";
 	jdbcTemplate.update(sql,new PreparedStatementSetter() {
 		@Override
 		public void setValues(PreparedStatement ps) throws SQLException{
-			ps.setInt(1, C.getCartId());
-			ps.setString(2, C.getBrowserInfo());
+			ps.setInt(1, A.getActiveProductsId());
+			ps.setInt(2, A.getCartId());
+			ps.setInt(3, A.getProductId());
+			ps.setInt(4, A.getQuantity());
 		}
 	});	
 }
-public void update(Cart C) {
-	String sql="UPDATE CART SET CART_ID=?, BROWSER_INFO=? WHERE CART_ID=?";
+public void update(ActiveProducts A) {
+	String sql="UPDATE ACTIVE_PRODUCTS SET ACTIVE_PRODUCTS_ID=?, CART_ID=?,PRODUCT_ID=?, QUANTITY=? WHERE ACTIVE_PRODUCTS_ID=?";
 	jdbcTemplate.update(sql,new PreparedStatementSetter() {
 		@Override
 		public void setValues(PreparedStatement ps) throws SQLException{
-			ps.setInt(1, C.getCartId());
-			ps.setString(2, C.getBrowserInfo());
-			ps.setInt(3, C.getCartId());
+			ps.setInt(1, A.getActiveProductsId());
+			ps.setInt(2, A.getCartId());
+			ps.setInt(3, A.getProductId());
+			ps.setInt(4, A.getQuantity());
+			ps.setInt(5, A.getActiveProductsId());
 		}
 	});	
 }
-public void delete(Cart C) {
-	String sql="DELETE from CART WHERE CART_ID=?";
+public void delete(ActiveProducts A) {
+	String sql="DELETE from ACTIVE_PRODUCTS WHERE ACTIVE_PRODUCTS_ID=?";
 	jdbcTemplate.update(sql,new PreparedStatementSetter() {
 		@Override
 		public void setValues(PreparedStatement ps) throws SQLException{
-			ps.setInt(1, C.getCartId());
+			ps.setInt(1, A.getActiveProductsId());
 		}
 	});
 }
-	
-public List<Cart> findAll(){
+public List<ActiveProducts> findAll(){
 	try {
-		ArrayList<Cart> list=new ArrayList<>();
+		ArrayList<ActiveProducts> list=new ArrayList<>();
 		Statement stmt=jdbcTemplate.getDataSource().getConnection().createStatement();
-		String select="SELECT * FROM CART";
+		String select="SELECT * FROM ACTIVE_PRODUCTS";
 		ResultSet rs= stmt.executeQuery(select);
 		while(rs.next()) {
-			int ID= rs.getInt("CART_ID");
-			String browser=rs.getString("BROWSER_INFO");
-			list.add(new Cart(ID,browser));
+			int ID= rs.getInt("ACTIVE_PRODUCTS_ID");
+			int CID=rs.getInt("CART_ID");
+			int PID=rs.getInt("PRODUCT_ID");
+			int quantity=rs.getInt("QUANTITY");
+		
+			list.add(new ActiveProducts(ID,CID,PID,quantity));
 		}
 		return list;
 	}
@@ -98,5 +104,4 @@ public List<Cart> findAll(){
 		return null;
 	}
 }
-	
 }
