@@ -9,6 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.cognizant.academy.blueteam.repository.*;
+import com.cognizant.academy.blueteam.service.*;
+import com.cognizant.academy.blueteam.models.*;
+
 @SpringBootApplication
 public class OnlineStoreDbApplication {
 

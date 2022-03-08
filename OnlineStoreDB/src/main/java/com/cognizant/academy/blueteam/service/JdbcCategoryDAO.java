@@ -13,6 +13,9 @@ import javax.sql.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 
+import com.cognizant.academy.blueteam.models.Category;
+import com.cognizant.academy.blueteam.repository.CategoryDAO;
+
 public class JdbcCategoryDAO implements CategoryDAO {
 	private static final String JDBC_URL="jdbc:derby:C:\\Users\\955514\\OnlineStore\\Store;create=true";
 	private Connection conn;
@@ -110,6 +113,5 @@ public static String getJdbcUrl() {
 			return null;
 		}
 	}
-	
 	
 }

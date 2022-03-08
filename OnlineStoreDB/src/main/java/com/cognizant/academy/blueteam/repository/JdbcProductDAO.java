@@ -12,6 +12,8 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 
+import com.cognizant.academy.blueteam.models.Product;
+
 public class JdbcProductDAO implements ProductDAO {
 	private static final String JDBC_URL="jdbc:derby:C:\\Users\\955514\\OnlineStore\\Store;create=true";
 	private Connection conn;
