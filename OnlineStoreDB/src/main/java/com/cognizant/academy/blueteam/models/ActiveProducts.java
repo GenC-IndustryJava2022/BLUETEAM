@@ -1,10 +1,24 @@
 package com.cognizant.academy.blueteam.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ACTIVE_PRODUCTS")
 public class ActiveProducts {
 	
+	@Id
+	@GeneratedValue
+	@Column(name="ACTIVE_PRODUCTS_ID")
 	private int activeProductsId;
+	@Column(name="CART_ID")
 	private int cartId;
+	@Column(name="PRODUCT_ID")
 	private int productId;
+	@Column(name="QUANTITY")
 	private int quantity;
 	
 	public ActiveProducts() {

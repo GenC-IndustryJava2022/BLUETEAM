@@ -2,11 +2,22 @@ package com.cognizant.academy.blueteam.models;
 
 import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CART")
 public class Cart {
-	
-private int cartId;
-private String browserInfo;
-private HashMap<Product, Integer> productMap;
+
+	@Id
+	@GeneratedValue
+	@Column(name="CART_ID")
+	private int cartId;
+	@Column(name="BROWSER_INFO")
+	private String browserInfo;
 
 
 public Cart(int cartId, String browserInfo) {
@@ -25,12 +36,6 @@ public String getBrowserInfo() {
 }
 public void setBrowserInfo(String browserInfo) {
 	this.browserInfo = browserInfo;
-}
-public HashMap<Product, Integer> getProductMap() {
-	return productMap;
-}
-public void setProductMap(HashMap<Product, Integer> productMap) {
-	this.productMap = productMap;
 }
 
 @Override

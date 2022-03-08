@@ -4,16 +4,23 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name="PRODUCT")
 public class Product implements Comparable<Product>{
 
-	
-@Id
-private int productId;
-private String name;
-private double price;
-private String image;
-private String description;
-private int categoryId;
+	@Id
+	@GeneratedValue
+	@Column(name="PRODUCT_ID")
+	private int productId;
+	@Column(name="NAME")
+	private String name;
+	@Column(name="PRICE")
+	private double price;
+	@Column(name="IMAGE")
+	private String image;
+	@Column(name="DESCRIPTION")
+	private String description;
+	@Column(name="CATEGORY_ID")
+	private int categoryId;
 
 public Product(int productId, String name, double price, String image, String description, int categoryId) {
 	super();

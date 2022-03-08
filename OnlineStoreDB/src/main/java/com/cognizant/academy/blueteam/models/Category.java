@@ -2,12 +2,24 @@ package com.cognizant.academy.blueteam.models;
 
 import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CATEGORY")
 public class Category{
-	
-private int categoryId;
-private String name;
-private String headerImage;
-private ArrayList<Product> list;
+
+	@Id
+	@GeneratedValue
+	@Column(name="CATEGORY_ID")
+	private int categoryId;
+	@Column(name="NAME")
+	private String name;
+	@Column(name="HEADER_IMAGE")
+	private String headerImage;
 
 public Category(int categoryId, String name, String headerImage){
 	super();
@@ -34,12 +46,6 @@ public void setHeaderImage(String headerImage) {
 	this.headerImage = headerImage;
 }
 
-public ArrayList<Product> getList() {
-	return list;
-}
-public void setList(ArrayList<Product> list) {
-	this.list = list;
-}
 @Override
 public String toString() {
 	return "Category [categoryId=" + categoryId + ", name=" + name + ", headerImage=" + headerImage + "]";
