@@ -7,7 +7,7 @@ import com.cognizant.academy.blueteam.models.ActiveProducts;
 
 
 @Repository
-public interface ActiveProductsRepository extends JpaRepository<ActiveProducts, Long> {
+public interface ActiveProductsRepository extends JpaRepository<ActiveProducts, Integer> {
 //	public void insert(Category C);
 //	public void update(Category C);
 //	public void delete(Category C);

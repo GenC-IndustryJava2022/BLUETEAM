@@ -1,6 +1,7 @@
 package com.cognizant.academy.blueteam.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,8 +39,12 @@ public class CartController {
 
 	@GetMapping("/all")
 	public List<Cart> getAllCarts() {
-		System.out.println("getting a whole bunch of data");
 		return cartService.findAll();
+	}
+
+	@GetMapping("/find")
+	public Optional<Cart> getOneCart() {
+		return cartService.findOne(9001);
 	}
 
 	@PostMapping("/add")

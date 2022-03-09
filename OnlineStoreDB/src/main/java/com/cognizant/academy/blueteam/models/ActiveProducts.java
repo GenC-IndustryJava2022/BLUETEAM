@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ACTIVE_PRODUCTS")
 public class ActiveProducts {
-	
+
 	@Id
 	@GeneratedValue
 	@Column(name="ACTIVE_PRODUCTS_ID")
@@ -20,10 +20,9 @@ public class ActiveProducts {
 	private int productId;
 	@Column(name="QUANTITY")
 	private int quantity;
-	
+
 	public ActiveProducts() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ActiveProducts(int activeProductsId, int cartId, int productId, int quantity) {
@@ -71,5 +70,5 @@ public class ActiveProducts {
 		return "ActiveProducts [activeProductsId=" + activeProductsId + ", cartId=" + cartId + ", productId="
 				+ productId + ", quantity=" + quantity + "]";
 	}
-	
+
 }

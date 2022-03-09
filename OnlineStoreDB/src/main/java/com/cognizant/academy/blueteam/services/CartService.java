@@ -1,6 +1,7 @@
 package com.cognizant.academy.blueteam.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,10 @@ public class CartService {
 		return cartRepository.findAll();
 	}
 
+	public Optional<Cart> findOne(int id) {
+		return cartRepository.findById(id);
+	}
+	
 	public Cart add(Cart cart) {
 		return cartRepository.save(cart);
 	}
