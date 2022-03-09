@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cognizant.academy.blueteam.models.Product;
-import com.cognizant.academy.blueteam.services.ProductService;
+import com.cognizant.academy.blueteam.models.Cart;
+import com.cognizant.academy.blueteam.services.CartService;
 
 @RestController
 @RequestMapping("carts")

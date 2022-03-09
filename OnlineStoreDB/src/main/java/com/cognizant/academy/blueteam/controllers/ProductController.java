@@ -37,7 +37,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/all")
-	public List<Product> getAllCategories() {
+	public List<Product> getAllProducts() {
 		System.out.println("getting a whole bunch of data");
 		return productService.findAll();
 	}
