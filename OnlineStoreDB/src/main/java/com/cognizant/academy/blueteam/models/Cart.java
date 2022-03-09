@@ -19,7 +19,10 @@ public class Cart {
 	@Column(name="BROWSER_INFO")
 	private String browserInfo;
 
-
+public Cart() {
+	
+}
+	
 public Cart(int cartId, String browserInfo) {
 	super();
 	this.cartId = cartId;

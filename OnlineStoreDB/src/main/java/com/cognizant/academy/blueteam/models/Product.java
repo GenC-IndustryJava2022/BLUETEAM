@@ -22,6 +22,9 @@ public class Product implements Comparable<Product>{
 	@Column(name="CATEGORY_ID")
 	private int categoryId;
 
+	public Product() {
+	}
+	
 public Product(int productId, String name, double price, String image, String description, int categoryId) {
 	super();
 	this.productId = productId;

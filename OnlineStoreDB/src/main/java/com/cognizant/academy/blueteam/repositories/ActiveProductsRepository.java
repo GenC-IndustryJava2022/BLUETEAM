@@ -1,12 +1,13 @@
-package com.cognizant.academy.blueteam.repository;
+package com.cognizant.academy.blueteam.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cognizant.academy.blueteam.models.Category;
+import com.cognizant.academy.blueteam.models.ActiveProducts;
+
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Long> {
+public interface ActiveProductsRepository extends JpaRepository<ActiveProducts, Integer> {
 //	public void insert(Category C);
 //	public void update(Category C);
 //	public void delete(Category C);
