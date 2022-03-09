@@ -1,4 +1,4 @@
-package com.cognizant.academy.blueteam.repository;
+package com.cognizant.academy.blueteam.repositories;
 
 import com.cognizant.academy.blueteam.models.Cart;
 

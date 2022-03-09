@@ -1,4 +1,4 @@
-package com.cognizant.academy.blueteam.repository;
+package com.cognizant.academy.blueteam.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

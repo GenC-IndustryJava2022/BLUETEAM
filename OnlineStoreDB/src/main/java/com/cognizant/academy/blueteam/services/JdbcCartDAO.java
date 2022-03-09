@@ -1,4 +1,4 @@
-package com.cognizant.academy.blueteam.service;
+package com.cognizant.academy.blueteam.services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.cognizant.academy.blueteam.models.Cart;
-import com.cognizant.academy.blueteam.repository.CartDAO;
+import com.cognizant.academy.blueteam.repositories.CartDAO;
 
 public class JdbcCartDAO implements CartDAO {
 	private static final String JDBC_URL="jdbc:derby:C:\\Users\\955514\\OnlineStore\\Store;create=true";

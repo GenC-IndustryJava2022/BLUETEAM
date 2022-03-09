@@ -1,4 +1,4 @@
-package com.cognizant.academy.blueteam.service;
+package com.cognizant.academy.blueteam.services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
