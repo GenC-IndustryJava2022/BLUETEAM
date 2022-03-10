@@ -37,3 +37,4 @@ build/
 
 ### MISC ###
 /derby.log
+application-default.properties
