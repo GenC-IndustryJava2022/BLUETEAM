@@ -25,8 +25,11 @@ public class ActiveProducts {
 		super();
 	}
 
-	public ActiveProducts(int activeProductsId, int cartId, int productId, int quantity) {
+	public ActiveProducts(int activeProductsId, int cartId, int productId, int quantity) throws NegativeQuantityException {
 		super();
+		if(quantity < 0) {
+			throw new NegativeQuantityException();
+		}
 		this.activeProductsId = activeProductsId;
 		this.cartId = cartId;
 		this.productId = productId;
@@ -61,7 +64,10 @@ public class ActiveProducts {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(int quantity) throws NegativeQuantityException {
+		if(quantity < 0) {
+			throw new NegativeQuantityException();
+		}
 		this.quantity = quantity;
 	}
 

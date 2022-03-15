@@ -41,10 +41,16 @@ public class ProductController {
 		System.out.println("getting a whole bunch of data");
 		return productService.findAll();
 	}
+	
+	@GetMapping("/some")
+	public List<Product> getAllProductsByCategoryAndPrice() {
+		System.out.println("getting a whole bunch of data");
+		return productService.findAllByCategoryAndPriceRange(null, 0, 0);
+	}
 
 	@PostMapping("/add")
 	public Product addProduct(@RequestBody Product product) {
-		productService.add(product);
+		productService.save(product);
 		return product;
 	}
 }
