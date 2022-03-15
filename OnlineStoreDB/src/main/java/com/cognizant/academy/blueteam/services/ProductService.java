@@ -2,6 +2,7 @@ package com.cognizant.academy.blueteam.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,10 @@ public class ProductService {
 	
 	public List<Product> findAllByCategoryAndPriceRange(Category category, double min, double max){
 		List<Product> all = productRepository.findAll();
-//		List<Product> category = all.stream();
-		return all;
+		List<Product> returning=all.stream()
+		.filter(x->x.getCategoryId()==category.getCategoryId())
+		.filter(x->x.getPrice()>=min&&x.getPrice()<=max)
+		.collect(Collectors.toList());
+		return returning;
 	}
 }
