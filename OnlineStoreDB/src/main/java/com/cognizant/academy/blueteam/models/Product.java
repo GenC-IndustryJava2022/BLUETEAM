@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="PRODUCT")
-public class Product implements Comparable<Product>{
+public class Product{
 
 	@Id
 	@GeneratedValue
@@ -70,10 +70,7 @@ public int getCategoryId() {
 public void setCategoryId(int categoryId) {
 	this.categoryId = categoryId;
 }
-@Override
-public int compareTo(Product p) {
-	return this.getName().compareTo(p.getName());
-}
+
 @Override
 public String toString() {
 	return "Product [productId=" + productId + ", name=" + name + ", price=" + price + ", image=" + image
