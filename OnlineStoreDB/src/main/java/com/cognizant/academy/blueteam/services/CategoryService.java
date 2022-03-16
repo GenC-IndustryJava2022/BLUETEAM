@@ -1,10 +1,12 @@
 package com.cognizant.academy.blueteam.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cognizant.academy.blueteam.models.Cart;
 import com.cognizant.academy.blueteam.models.Category;
 import com.cognizant.academy.blueteam.repositories.CategoryRepository;
 
@@ -36,6 +38,10 @@ public class CategoryService {
 	
 	public List<Category> findAll() {
 		return categoryRepository.findAll();
+	}
+	
+	public Optional<Category> findOne(int id) {
+		return categoryRepository.findById(id);
 	}
 	
 	public Category add(Category category) {

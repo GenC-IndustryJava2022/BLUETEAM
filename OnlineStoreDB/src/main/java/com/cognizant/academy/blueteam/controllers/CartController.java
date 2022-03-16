@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cognizant.academy.blueteam.models.Cart;
@@ -43,8 +44,8 @@ public class CartController {
 	}
 
 	@GetMapping("/find")
-	public Optional<Cart> getOneCart() {
-		return cartService.findOne(9001);
+	public Optional<Cart> getOneCart(@RequestParam int Id) {
+		return cartService.findOne(Id);
 	}
 
 	@PostMapping("/add")
