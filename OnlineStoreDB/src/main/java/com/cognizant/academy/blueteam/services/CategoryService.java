@@ -2,12 +2,14 @@ package com.cognizant.academy.blueteam.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cognizant.academy.blueteam.models.Cart;
 import com.cognizant.academy.blueteam.models.Category;
+import com.cognizant.academy.blueteam.models.Product;
 import com.cognizant.academy.blueteam.repositories.CategoryRepository;
 
 @Service
@@ -38,6 +40,10 @@ public class CategoryService {
 	
 	public List<Category> findAll() {
 		return categoryRepository.findAll();
+	}
+	
+	public List<Category> sortByName(List<Category> list){
+		return categoryRepository.findAll().stream().sorted((x,y)->x.getName().compareTo(y.getName())).collect(Collectors.toList());
 	}
 	
 	public Optional<Category> findOne(int id) {
