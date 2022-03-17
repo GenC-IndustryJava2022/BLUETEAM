@@ -39,7 +39,7 @@ export class CategoryService {
   }
 
   getCategoryById(categoryId: number): Category | undefined {
-    return this.categories.find((p) => p.id == categoryId);
+    return this.categories.find((p) => p.categoryId == categoryId);
   }
 
   private handleError<T>(result?: T) {
