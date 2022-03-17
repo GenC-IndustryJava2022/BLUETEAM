@@ -1,3 +1,4 @@
 <div *ngIf="isCartDefined()">
     <p>{{cart.browserInfo}}</p>
+    <div *ngFor="let activeProduct of activeProducts"><app-cart-list></app-cart-list></div>
 </div>

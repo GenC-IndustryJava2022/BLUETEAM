@@ -51,7 +51,7 @@ export class ActiveProductService {
   addActiveProduct(newActiveProduct: ActiveProduct) {
     newActiveProduct.activeProductsId = 0;
     return this.httpClient.post<ActiveProduct>(
-      this.baseURL + 'add?browserInfo=',
+      this.baseURL + 'add',
       newActiveProduct,
       this.postHeader
     ); //, this.postHeader)
