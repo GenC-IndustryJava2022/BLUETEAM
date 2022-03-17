@@ -15,7 +15,7 @@ primary key (PRODUCT_ID),
 foreign key (CATEGORY_ID) references CATEGORY(CATEGORY_ID)
 );
 CREATE TABLE CART(
-CART_ID int,
+CART_ID int AUTO_INCREMENT,
 BROWSER_INFO varchar(250) not null,
 primary key (CART_ID)
 );

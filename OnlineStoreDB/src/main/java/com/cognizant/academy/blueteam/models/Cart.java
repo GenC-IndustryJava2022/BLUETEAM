@@ -13,7 +13,6 @@ import javax.persistence.Table;
 public class Cart {
 
 	@Id
-	@GeneratedValue
 	@Column(name="CART_ID")
 	private int cartId;
 	@Column(name="BROWSER_INFO")
