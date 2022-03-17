@@ -46,8 +46,8 @@ public class ActiveProductsController {
 	}
 
 	@GetMapping("/find")
-	public Optional<ActiveProducts> getOneCart(@RequestParam int Id) {
-		return activeProductsService.findOne(Id);
+	public Optional<ActiveProducts> getOneCart(@RequestParam int id) {
+		return activeProductsService.findOne(id);
 	}
 	
 	@PostMapping("/add")

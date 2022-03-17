@@ -49,8 +49,8 @@ public class CategoryController {
 
 	@CrossOrigin()
 	@GetMapping("/find")
-	public Optional<Category> getOneCart(@RequestParam int Id) {
-		return categoryService.findOne(Id);
+	public Optional<Category> getOneCart(@RequestParam int id) {
+		return categoryService.findOne(id);
 	}
 	
 	@PostMapping("/add")

@@ -9,6 +9,12 @@ export class CartService {
 cart!: Cart;
 baseURL: string = 'http://localhost:8088/carts/';
 
+// postHeader = {
+//   headers:  new HttpHeaders({
+//     'Content-Type': 'application/json'
+//   })
+// };
+
   constructor(private httpClient: HttpClient) {
     // this.carts=[
     //   new Cart(1,'Chrome 96.0.4664.110 Windows 10 20H2'),
@@ -36,4 +42,10 @@ baseURL: string = 'http://localhost:8088/carts/';
     return result;
   }
 
+
+  addCart(browserInfo:string):Observable<Cart>{
+    return this.httpClient.post<Cart>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
+    // this.httpClient.post<Cart>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
+    // .subscribe(response => {this.cart = response},(err) =>{console.log(err)})
+  }
 }

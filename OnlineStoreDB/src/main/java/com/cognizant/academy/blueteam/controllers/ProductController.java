@@ -49,13 +49,15 @@ public class ProductController {
 
 	@CrossOrigin()
 	@GetMapping("/find")
-	public Optional<Product> getOneCart(@RequestParam int Id) {
-		return productService.findOne(Id);
+	public Optional<Product> getOneCart(@RequestParam int id) {
+//		TODO: gracefully respond when wrong parameters are passed (or nonexistant)
+		return productService.findOne(id);
 	}
-	
+
 	@CrossOrigin()
 	@GetMapping("/by_category")
-	public List<Product> getAllProductsByCategory(@RequestParam int categoryId) {
+	public List<Product> getAllProductsByCategory(
+			@RequestParam int categoryId) {
 		return productService.findAllByCategory(categoryId);
 	}
 

@@ -1,7 +1,23 @@
 <p>product-page works!</p>
-<!-- <div *ngIf="typeof(product) == 'undefined'">
+<div *ngIf="isDefined()">
+    this if thing worked!
     <p>{{product.image}}</p>
     {{product.name}}
     <p>${{product.price}}</p>
-</div> -->
+
+    <form (ngSubmit)="addToCart()" [formGroup]="addForm">
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input
+            type="number"
+            class="form-control numberInput"
+            formControlName="quantity"
+            min="0"
+          />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">{{buttonMessage}}</button>
+        </div>
+      </form>
+</div>
 

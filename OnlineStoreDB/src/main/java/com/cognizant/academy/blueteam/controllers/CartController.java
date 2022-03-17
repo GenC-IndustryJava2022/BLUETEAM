@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,7 +55,11 @@ public class CartController {
 	@PostMapping("/add")
 	public Cart addCart(@RequestParam String browserInfo) {
 		
-		return cartService.add(new Cart(0,browserInfo));
+		Cart newcart = cartService.add(new Cart(0,browserInfo));
+		System.out.println(newcart);
+		return newcart;
 	
 	}
+	
+//	@DeleteMapping("/remove")
 }
