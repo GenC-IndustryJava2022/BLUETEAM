@@ -1,3 +1,3 @@
 export class Cart {
-  constructor(public id: number, public browserInfo: string) {}
+  constructor(public cartId: number, public browserInfo: string) {}
 }

@@ -1,6 +1,6 @@
 export class ActiveProduct {
   constructor(
-    public id: number,
+    public activeProductsId: number,
     public productId: number,
     public cartId: number,
     public quantity: number

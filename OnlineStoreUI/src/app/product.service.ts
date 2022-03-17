@@ -45,7 +45,7 @@ export class ProductService {
   }
 
   getProductById(productId: number): Product | undefined {
-    return this.products.find((p) => p.id == productId);
+    return this.products.find((p) => p.productId == productId);
   }
 
   // getProductsByCategoryId(categoryId: number): Product[] {
