@@ -44,8 +44,14 @@ export class ProductService {
     );
   }
 
-  getProductById(productId: number): Product | undefined {
-    return this.products.find((p) => p.productId == productId);
+  getProductById(productId: number): Observable<Product>{
+    return this.httpClient.get<Product[]>(this.baseURL + 'find?id='+ productId).pipe(
+      map((response) => {
+        this.products = response;
+        return response;
+      }),
+      catchError(this.handleError<any>())
+    );
   }
 
   // getProductsByCategoryId(categoryId: number): Product[] {
