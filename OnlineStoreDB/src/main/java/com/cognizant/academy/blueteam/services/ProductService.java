@@ -41,6 +41,15 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
+	public List<Product> sortByName(List<Product> list){
+		return list.stream().sorted((x,y)->x.getName().compareTo(y.getName())).collect(Collectors.toList());
+	}
+	
+	public List<Product> sortByPrice(List<Product> list){
+	return list.stream().sorted((x,y)->Double.compare(x.getPrice(),y.getPrice())).collect(Collectors.toList());
+
+	}
+	
 	public Product save(Product product) {
 		return productRepository.save(product);
 	}
@@ -50,6 +59,7 @@ public class ProductService {
 	}
 	
 	public List<Product> findAllByCategoryAndPriceRange(Category category, double min, double max){
+	
 		List<Product> all = productRepository.findAll();
 		List<Product> returning=all.stream()
 		.filter(x->x.getCategoryId()==category.getCategoryId())
