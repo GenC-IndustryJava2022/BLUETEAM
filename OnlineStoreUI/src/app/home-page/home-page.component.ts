@@ -11,11 +11,12 @@ export class HomePageComponent implements OnInit {
   categories!: Category[];
   constructor(private categoryService: CategoryService) {
     // this.categories = this.categoryService.getAllCategories();
+  }
+
+  ngOnInit(): void {
     this.categoryService
       .getAllCategories()
       .subscribe((response) => (this.categories = response));
     console.log(this.categories);
   }
-
-  ngOnInit(): void {}
 }

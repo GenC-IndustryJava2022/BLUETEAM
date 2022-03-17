@@ -11,17 +11,14 @@ import { ProductService } from '../product.service';
 export class CategoryViewComponent implements OnInit {
   @Input() public category!: Category;
   products: Product[];
+
   constructor(private productService: ProductService) {
     this.products = [];
-    // this.productService.getAllProducts().subscribe(
-    //   response => this.products = response
-    // );
   }
 
   ngOnInit(): void {
-    this.products = this.productService.getProductsByCategoryId(
-      this.category.id
-    );
-    console.log(this.products);
-  }
+    console.log(this.category)
+    this.productService
+      .getProductsByCategoryId(this.category.categoryId)
+      .subscribe((response) => (this.products = response));}
 }
