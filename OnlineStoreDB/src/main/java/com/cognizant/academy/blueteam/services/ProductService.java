@@ -58,6 +58,18 @@ public class ProductService {
 		return productRepository.findById(id);
 	}
 	
+	public List<Product> findAllByCategory(int categoryId){
+		List<Product> all = productRepository.findAll();
+		List<Product> returning=all.stream()
+		.filter(x->x.getCategoryId()==categoryId)
+		.collect(Collectors.toList());
+		return returning;
+	}
+	
+	public List<Product> findAllByCategory(Category category){
+		return findAllByCategory(category.getCategoryId());
+	}
+	
 	public List<Product> findAllByCategoryAndPriceRange(Category category, double min, double max){
 	
 		List<Product> all = productRepository.findAll();
