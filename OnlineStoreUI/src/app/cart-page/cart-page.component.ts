@@ -17,18 +17,22 @@ export class CartPageComponent implements OnInit {
   constructor(  private routes: ActivatedRoute,
     private cartService: CartService) {
       
-     let newCart=this.cartService
-      .getCartById(parseInt(this.routes.snapshot.paramMap.get('id')!));
-    console.log("cart: " + parseInt(this.routes.snapshot.paramMap.get('id')!));
-      if(typeof newCart=='undefined'){
-       this.cart=new Cart(2,"");
-      }
-      else{
-        this.cart=newCart;
-      }
+    this.cartService
+      .getCartById(parseInt(this.routes.snapshot.paramMap.get('id')!))
+     .subscribe((response) => (this.cartChecker(response)));
+     
      }
     
+     private cartChecker(maybeACart: Cart| undefined ): Cart{
 
+      if(typeof maybeACart=='undefined'){
+        this.cart=new Cart(2,"");
+       }
+       else{
+         this.cart=maybeACart;
+       }
+       return this.cart;
+     }
   ngOnInit(): void {
 
  
