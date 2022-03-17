@@ -17,8 +17,8 @@ export class CategoryViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.category)
     this.productService
       .getProductsByCategoryId(this.category.categoryId)
-      .subscribe((response) => (this.products = response));}
+      .subscribe((response) => (this.products = response));
+  }
 }
