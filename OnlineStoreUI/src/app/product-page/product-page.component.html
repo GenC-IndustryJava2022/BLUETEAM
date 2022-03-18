@@ -2,7 +2,7 @@
   <div *ngIf="isProductDefined()" class="container">
     <div class="row">
       <div class="col-8">
-        <div class="product-image">{{ product.image }}</div>
+        <img class="product-image" alt="{{product.name}}" src="./assets/product-images/{{product.image}}">
       </div>
       <div class="col-4">
         <div class="product-name">{{ product.name }}</div>
