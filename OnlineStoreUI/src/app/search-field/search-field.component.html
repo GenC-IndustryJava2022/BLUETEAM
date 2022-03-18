@@ -1,8 +1,15 @@
-<form class="navbar-form form-inline" action="/search">
+<form class="navbar-form form-inline" (ngSubmit)="redirectToSearch()">
+  {{ query }}
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search" />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search"
+      [(ngModel)]="query"
+      name="search"
+    />
   </div>
-  <button type="submit" class="btn btn-default" routerLink="/search">
+  <button type="submit" class="btn btn-default">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"

@@ -15,30 +15,26 @@ export class SearchPageComponent implements OnInit {
 
   constructor(
     private routes: ActivatedRoute,
-    private productService: ProductService,
-    private httpClient: HttpClient,
-    private router: Router
+    private productService: ProductService
   ) {
     this.products = [];
   }
 
   ngOnInit(): void {
-    this.routes.queryParams
-    .subscribe((response) => {
-      console.log(response);
-      this.query = response['q'];
+    this.routes.queryParams.subscribe((response) => {
+      this.query = this.stringOrEmpty(response['q']);
       this.runSearch();
     });
   }
 
-  runSearch():void{
+  runSearch(): void {
     this.productService
       .getProductsBySearchQuery(this.query)
       .subscribe((response) => (this.products = response));
   }
 
   stringOrEmpty(maybeAString: string): string {
-    if(Boolean(maybeAString)) {
+    if (Boolean(maybeAString)) {
       return maybeAString;
     }
     return '';
