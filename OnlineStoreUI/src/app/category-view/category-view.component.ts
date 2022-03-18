@@ -10,15 +10,20 @@ import { ProductService } from '../product.service';
 })
 export class CategoryViewComponent implements OnInit {
   @Input() public category!: Category;
-  products: Product[];
+  products!: Product[];
 
   constructor(private productService: ProductService) {
-    this.products = [];
+    // this.products = [];
   }
 
   ngOnInit(): void {
     this.productService
       .getProductsByCategoryId(this.category.categoryId)
-      .subscribe((response) => (this.products = response));
+      .subscribe((response) => (
+        this.products = response));
+  }
+
+  isProductsDefined(maybeAProducts: Product[] = this.products): boolean {
+    return Boolean(maybeAProducts);
   }
 }
