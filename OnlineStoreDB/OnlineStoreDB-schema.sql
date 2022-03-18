@@ -1,3 +1,6 @@
+-- remove ALL existing tables
+-- DROP table blueteam_shop.active_products, cart,product,category
+
 CREATE TABLE CATEGORY(
 CATEGORY_ID int AUTO_INCREMENT,
 NAME varchar(250) not null,
