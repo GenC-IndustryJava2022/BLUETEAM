@@ -1,21 +1,24 @@
-<div *ngIf="isActiveProductDefined()">
-  <p>{{ activeProduct.quantity }}</p>
-  <div *ngIf="isProductDefined()">
-    <p>{{ product.image }}</p>
-    {{ product.name }}
-    <p>${{ product.price }}</p>
+<div *ngIf="isActiveProductDefined()" class="container">
+  <div class="row">
+    <div class="col-10">
+      <div *ngIf="isProductDefined()">
+        <div class="product-image">{{ product.image }}</div>
+        <div class="product-name">{{ product.name }}</div>
+        <div class="product-price">${{ product.price }}</div>
+      </div>
+    </div>
+    <form name="quantityForm" class="col-2">
+      <label for="quantity">Quantity</label>
+      <input
+        type="number"
+        name="quantity"
+        class="form-control quantity-nput"
+        [(ngModel)]="activeProduct.quantity"
+        (input)="updateQuantity()"
+        min="1"
+      />
+      <!-- TODO add a remove button -->
+      <!-- TODO don't allow empty value -->
+    </form>
   </div>
-  <form name="quantityForm">
-    <label for="quantity">Quantity</label>
-    <input
-      type="number"
-      name="quantity"
-      [(ngModel)]="activeProduct.quantity"
-      class="form-control numberInput"
-      (input)="updateQuantity()"
-      min="1"
-    />
-    <!-- TODO add a remove button -->
-    <!-- TODO don't allow empty value -->
-  </form>
 </div>
