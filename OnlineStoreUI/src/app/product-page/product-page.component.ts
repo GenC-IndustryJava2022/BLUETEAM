@@ -53,8 +53,8 @@ export class ProductPageComponent implements OnInit {
       .addActiveProduct(
         new ActiveProduct(0, productId, this.cartId, this.quantity)
       )
-      .subscribe(() => (this.buttonMessage = 'Added!'));
-    this.router.navigate(['/cart/' + cartId]);
+      .subscribe(() => (this.router.navigate(['/cart/' + cartId])));
+    ;
   }
 
   isProductDefined(maybeAProduct: Product = this.product): boolean {

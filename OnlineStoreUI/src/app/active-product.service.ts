@@ -50,6 +50,7 @@ export class ActiveProductService {
 
   addActiveProduct(newActiveProduct: ActiveProduct) {
     newActiveProduct.activeProductsId = 0;
+    console.log(newActiveProduct);
     return this.httpClient.post<ActiveProduct>(
       this.baseURL + 'add',
       newActiveProduct,
