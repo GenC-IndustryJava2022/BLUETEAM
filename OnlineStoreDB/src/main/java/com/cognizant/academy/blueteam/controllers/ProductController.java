@@ -67,6 +67,13 @@ public class ProductController {
 		System.out.println("getting a whole bunch of data");
 		return productService.findAllByCategoryAndPriceRange(null, 0, 0);
 	}
+	
+	@CrossOrigin()
+	@GetMapping("/search")
+	public List<Product> getAllProductsBySearch(@RequestParam String name) {
+		System.out.println("getting a whole bunch of data");
+		return productService.findAllBySearch(name);
+	}
 
 	@PostMapping("/add")
 	public Product addProduct(@RequestBody Product product) {

@@ -79,4 +79,12 @@ public class ProductService {
 		.collect(Collectors.toList());
 		return returning;
 	}
+
+	public List<Product> findAllBySearch(String s) {
+		List<Product> all = productRepository.findAll();
+		List<Product> returning=all.stream()
+		.filter(x->x.getName().toLowerCase().contains(s.toLowerCase())|| x.getDescription().toLowerCase().contains(s.toLowerCase()))
+		.collect(Collectors.toList());
+		return returning;
+	}
 }
