@@ -1,22 +1,31 @@
-<div *ngIf="isDefined()">
-    <p>{{product.image}}</p>
-    {{product.name}}
-    <p>${{product.price}}</p>
+<div class="product-page">
+  <div *ngIf="isProductDefined()" class="container">
+    <div class="row">
+      <div class="col-8">
+        <p class="product-image">{{ product.image }}</p>
+      </div>
+      <div class="col-4">
+        <p class="product-name">{{ product.name }}</p>
+        <p class="product-price">${{ product.price }}</p>
 
-    <form (ngSubmit)="addToCart()" [formGroup]="addForm">
-        <div class="form-group">
-          <label for="quantity">Quantity</label>
-          <input
-            type="number"
-            class="form-control numberInput"
-            formControlName="quantity"
-            min="1"
-            value=1
-          />
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success">{{buttonMessage}}</button>
-        </div>
-      </form>
+        <form (ngSubmit)="addToCart()" [formGroup]="addForm">
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input
+              type="number"
+              class="form-control quantity-input"
+              formControlName="quantity"
+              min="1"
+              value="1"
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success">
+              {{ buttonMessage }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-

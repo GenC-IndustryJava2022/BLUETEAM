@@ -57,7 +57,7 @@ export class ProductPageComponent implements OnInit {
     this.router.navigate(['/cart/' + cartId]);
   }
 
-  isDefined(maybeAProduct: Product = this.product): boolean {
+  isProductDefined(maybeAProduct: Product = this.product): boolean {
     return Boolean(maybeAProduct);
   }
 }

@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+.quantity-input {
+  width: 15ex;
+}
+.product-image {
+  padding: 2em;
+  background-color: cadetblue;
+}
+.product-price {
+  color: dimgray;
+}
+.product-name {
+  color: black;
+}
