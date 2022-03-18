@@ -1,6 +1,6 @@
 <div class="product-preview">
   <a routerLink="/product/{{ product.productId }}">
-    <div class="product-image">{{ product.image }}</div>
+    <img class="product-image" alt="{{product.name}}" src="./assets/product-images/{{product.image}}">
   </a>
   <a class="product-name" routerLink="/product/{{ product.productId }}">{{
     product.name

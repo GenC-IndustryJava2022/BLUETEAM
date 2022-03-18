@@ -2,7 +2,8 @@
   width: 15ex;
 }
 .product-image {
-  padding: 2em;
+  max-width: 100%;
+  height: auto;
   background-color: cadetblue;
 }
 .product-price {
