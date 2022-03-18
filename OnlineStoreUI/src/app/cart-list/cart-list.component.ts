@@ -14,7 +14,10 @@ export class CartListComponent implements OnInit {
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productService
+      .getProductById(this.activeProduct.productId)
+      .subscribe((response) => (this.product = response));}
 
   updateQuantity() {
     console.log('updated quantity:' + this.activeProduct.quantity);

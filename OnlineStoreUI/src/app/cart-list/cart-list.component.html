@@ -1,24 +1,37 @@
 <div *ngIf="isActiveProductDefined()" class="container">
-  <div class="row">
-    <div class="col-10">
-      <div *ngIf="isProductDefined()">
-        <div class="product-image">{{ product.image }}</div>
-        <div class="product-name">{{ product.name }}</div>
-        <div class="product-price">${{ product.price }}</div>
-      </div>
+  <div *ngIf="isProductDefined()" class="row">
+    <div class="col-3">
+      <a routerLink="/product/{{ product.productId }}">
+        <img
+          class="product-image"
+          alt="{{ product.name }}"
+          src="./assets/product-images/{{ product.image }}"
+        />
+      </a>
     </div>
-    <form name="quantityForm" class="col-2">
-      <label for="quantity">Quantity</label>
-      <input
-        type="number"
-        name="quantity"
-        class="form-control quantity-nput"
-        [(ngModel)]="activeProduct.quantity"
-        (input)="updateQuantity()"
-        min="1"
-      />
-      <!-- TODO add a remove button -->
-      <!-- TODO don't allow empty value -->
-    </form>
+    <div class="col-4">
+      <a class="product-name" routerLink="/product/{{ product.productId }}">{{
+        product.name
+      }}</a>
+      <div class="product-price">${{ product.price }}</div>
+    </div>
+    <div class="col-3">
+      <form name="quantityForm">
+        <label for="quantity">Quantity</label>
+        <input
+          type="number"
+          name="quantity"
+          class="form-control quantity-nput"
+          [(ngModel)]="activeProduct.quantity"
+          (input)="updateQuantity()"
+          min="1"
+        />
+        <!-- TODO add a remove button -->
+        <!-- TODO don't allow empty value -->
+      </form>
+    </div>
+    <div class="col-2">
+      ${{ product.price * activeProduct.quantity }}
+    </div>
   </div>
 </div>
