@@ -1,0 +1,15 @@
+.productpreview {
+  /* max-width: 10em; */
+  border: 0.25ex;
+}
+.image {
+  /* width: */
+  padding: 2em;
+  background-color: cadetblue;
+}
+.price{
+  color: dimgray;
+}
+.name{
+  color:black;
+}
