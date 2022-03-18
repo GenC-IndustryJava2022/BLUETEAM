@@ -70,6 +70,18 @@ export class ProductService {
       );
   }
 
+  getProductsBySearchQuery(query: string): Observable<Product[]> {
+    return this.httpClient
+      .get<Product[]>(this.baseURL + 'search?name=' + query)
+      .pipe(
+        map((response) => {
+          this.products = response;
+          return response;
+        }),
+        catchError(this.handleError<any>())
+      );
+  }
+
   private handleError<T>(result?: T) {
     console.log('some error happened...');
     return result;
