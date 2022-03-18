@@ -2,11 +2,11 @@
   <div *ngIf="isProductDefined()" class="container">
     <div class="row">
       <div class="col-8">
-        <p class="product-image">{{ product.image }}</p>
+        <div class="product-image">{{ product.image }}</div>
       </div>
       <div class="col-4">
-        <p class="product-name">{{ product.name }}</p>
-        <p class="product-price">${{ product.price }}</p>
+        <div class="product-name">{{ product.name }}</div>
+        <div class="product-price">${{ product.price }}</div>
 
         <form (ngSubmit)="addToCart()" [formGroup]="addForm">
           <div class="form-group">

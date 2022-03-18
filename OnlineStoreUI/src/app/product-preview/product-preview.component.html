@@ -1,9 +1,9 @@
 <div class="product-preview">
   <a routerLink="/product/{{ product.productId }}">
-    <p class="product-image">{{ product.image }}</p>
+    <div class="product-image">{{ product.image }}</div>
   </a>
   <a class="product-name" routerLink="/product/{{ product.productId }}">{{
     product.name
   }}</a>
-  <p class="product-price">${{ product.price }}</p>
+  <div class="product-price">${{ product.price }}</div>
 </div>
