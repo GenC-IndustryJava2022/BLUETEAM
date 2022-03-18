@@ -64,6 +64,7 @@ public class ActiveProductsController {
 	@CrossOrigin()
 	@PostMapping("/add")
 	public ActiveProducts addActiveProducts(@RequestBody ActiveProducts activeProducts) {
+		System.out.println("got a converted product " + activeProducts);
 		activeProductsService.add(activeProducts);
 		return activeProducts;
 	}

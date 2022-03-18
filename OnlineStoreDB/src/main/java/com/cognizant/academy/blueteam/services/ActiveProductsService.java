@@ -61,6 +61,7 @@ public class ActiveProductsService {
 	}
 
 	public ActiveProducts add(ActiveProducts activeProducts) {
+		System.out.println("service reached with value " + activeProducts);
 		return activeProductsRepository.save(activeProducts);
 	}
 
