@@ -11,9 +11,12 @@
   font-weight: 600;
 }
 
-.toolbar #cart {
+#cart-icon {
   height: 40px;
   margin: 0 8px;
+  vertical-align: middle;
+  padding-left:2em;
+  color:aliceblue;
 }
 
 .spacer {
