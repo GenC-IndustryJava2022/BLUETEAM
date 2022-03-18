@@ -1,1 +1,3 @@
-<p>products-list works!</p>
+<div *ngFor="let product of products">
+    <app-product-preview [product]="product"></app-product-preview>
+</div>
