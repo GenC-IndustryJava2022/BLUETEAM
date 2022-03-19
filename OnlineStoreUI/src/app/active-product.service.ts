@@ -59,4 +59,18 @@ export class ActiveProductService {
     // this.httpClient.post<ActiveProduct>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
     // .subscribe(response => {this.activeProduct = response},(err) =>{console.log(err)})
   }
+
+  deleteProductFromActiveProduct(newActiveProduct: ActiveProduct) {
+    console.log(newActiveProduct);
+    return this.httpClient.post<ActiveProduct>(
+      this.baseURL + 'delete',
+      newActiveProduct,
+      this.postHeader
+    ); //, this.postHeader)
+    // this.httpClient.post<ActiveProduct>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
+    // .subscribe(response => {this.activeProduct = response},(err) =>{console.log(err)})
+  }
+
+
+
 }

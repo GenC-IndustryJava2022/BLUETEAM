@@ -16,6 +16,7 @@ export class ProductPageComponent implements OnInit {
   cartId = 1;
   isInCart = false;
   buttonMessage = 'Add to Cart';
+  
 
   addForm = this.fb.group({ quantity: new FormControl('') });
 
