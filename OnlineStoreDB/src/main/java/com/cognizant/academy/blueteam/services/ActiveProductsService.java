@@ -5,11 +5,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import com.cognizant.academy.blueteam.models.ActiveProducts;
 import com.cognizant.academy.blueteam.models.Cart;
 import com.cognizant.academy.blueteam.models.Category;
+import com.cognizant.academy.blueteam.models.DuplicateTableEntryException;
 import com.cognizant.academy.blueteam.models.Product;
 import com.cognizant.academy.blueteam.repositories.ActiveProductsRepository;
 
@@ -61,7 +63,10 @@ public class ActiveProductsService {
 	}
 
 	public ActiveProducts add(ActiveProducts activeProducts) {
-		System.out.println("service reached with value " + activeProducts);
+		List<ActiveProducts> mutualProducts = this.findAllByCart(activeProducts.getCartId());
+		if(mutualProducts.stream().anyMatch(ap->ap.getProductId() == activeProducts.getProductId())) {
+			throw new DuplicateTableEntryException("this product is already in the cart");
+		}
 		return activeProductsRepository.save(activeProducts);
 	}
 
