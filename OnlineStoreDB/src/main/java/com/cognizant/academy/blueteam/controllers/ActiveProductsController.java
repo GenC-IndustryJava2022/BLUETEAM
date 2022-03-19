@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -68,4 +69,13 @@ public class ActiveProductsController {
 		activeProductsService.add(activeProducts);
 		return activeProducts;
 	}
+	
+	@CrossOrigin()
+	@PostMapping("/delete")
+	public ActiveProducts deleteProduct(@RequestBody ActiveProducts activeProducts) {
+		System.out.println("delete a converted product " + activeProducts);
+		activeProductsService.delete(activeProducts);
+		return activeProducts;
+	}
+	
 }

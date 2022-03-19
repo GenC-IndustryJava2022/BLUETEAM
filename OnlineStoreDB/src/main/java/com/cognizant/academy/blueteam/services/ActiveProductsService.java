@@ -65,4 +65,11 @@ public class ActiveProductsService {
 		return activeProductsRepository.save(activeProducts);
 	}
 
+
+	public void delete(ActiveProducts activeProducts) {
+		activeProductsRepository.delete(activeProducts);
+	}
+
+
+
 }

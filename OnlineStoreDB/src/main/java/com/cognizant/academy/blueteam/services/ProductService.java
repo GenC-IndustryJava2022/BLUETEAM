@@ -46,6 +46,7 @@ public class ProductService {
 	}
 	
 	public List<Product> sortByPrice(List<Product> list){
+		
 	return list.stream().sorted((x,y)->Double.compare(x.getPrice(),y.getPrice())).collect(Collectors.toList());
 
 	}
