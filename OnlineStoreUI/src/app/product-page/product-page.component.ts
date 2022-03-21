@@ -15,9 +15,8 @@ export class ProductPageComponent implements OnInit {
   product!: Product;
   cartId = 1;
   isInCart = false;
+  quantity:number = 1;
   buttonMessage = 'Add to Cart';
-
-  addForm = this.fb.group({ quantity: new FormControl('') });
 
   constructor(
     private routes: ActivatedRoute,
@@ -27,23 +26,11 @@ export class ProductPageComponent implements OnInit {
     private router: Router
   ) {}
 
-  get quantity() {
-    return this.addForm.get('quantity')?.value;
-  }
-
   ngOnInit(): void {
     this.productService
       .getProductById(parseInt(this.routes.snapshot.paramMap.get('id')!))
       .subscribe((response) => (this.product = response));
-    // console.log(parseInt(this.routes.snapshot.paramMap.get('id')!));
-    // this.product = this.productService.getProductById(
-    //   parseInt(this.routes.snapshot.paramMap.get('id')!)
-    // )!;
   }
-
-  // isReady(): boolean {
-  //   return this.product;
-  // }
 
   addToCart(): void {
     console.log('quantity: ' + this.quantity);
