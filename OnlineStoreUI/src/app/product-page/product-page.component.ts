@@ -16,7 +16,6 @@ export class ProductPageComponent implements OnInit {
   cartId = 1;
   isInCart = false;
   buttonMessage = 'Add to Cart';
-  
 
   addForm = this.fb.group({ quantity: new FormControl('') });
 
@@ -54,11 +53,26 @@ export class ProductPageComponent implements OnInit {
       .addActiveProduct(
         new ActiveProduct(0, productId, this.cartId, this.quantity)
       )
-      .subscribe(() => (this.router.navigate(['/cart/' + cartId])));
-    ;
+      .subscribe(
+        () => this.goToCart(),
+        (error) => this.handleError(error)
+      );
   }
 
   isProductDefined(maybeAProduct: Product = this.product): boolean {
     return Boolean(maybeAProduct);
+  }
+
+  goToCart() {
+    this.router.navigate(['/cart/' + this.cartId]);
+  }
+
+  handleError(error: any): void {
+    if ((error.status = 409)) {
+      console.log('already in cart');
+      this.isInCart = true;
+    } else {
+      console.log('some error happened');
+    }
   }
 }
