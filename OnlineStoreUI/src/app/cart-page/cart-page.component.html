@@ -1,6 +1,6 @@
 <div *ngIf="isCartDefined()" class="container">
   <div *ngFor="let activeProduct of activeProducts">
-    <app-cart-list [activeProduct]="activeProduct" (costEvent)="calculateTotalPrice()"></app-cart-list>
+    <app-cart-list [activeProduct]="activeProduct" (costEvent)="getTotalCost()"></app-cart-list>
   </div>
   <hr/>
   <div class="">

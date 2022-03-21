@@ -13,7 +13,7 @@ import { ElementSchemaRegistry } from '@angular/compiler';
 })
 export class CartListComponent implements OnInit {
   @Input() activeProduct!: ActiveProduct;
-  @Output() costEvent = new EventEmitter<number>();
+  @Output() costEvent = new EventEmitter<ActiveProduct>();
   product!: Product;
   calculatedCost: number = 0;
   buttonMessage = 'Delete';
@@ -30,22 +30,15 @@ export class CartListComponent implements OnInit {
       .getProductById(this.activeProduct.productId)
       .subscribe((response) => {
         this.product = response;
-        this.updateCost();
       });
   }
 
   updateQuantity() {
-    // console.log('updated quantity:' + this.activeProduct.quantity);
     this.activeProductService.updateActiveProduct(this.activeProduct)
     .subscribe((response) => {
       this.activeProduct = response;
-      this.updateCost();
+      this.costEvent.emit(this.activeProduct);
     });
-  }
-
-  updateCost() {
-    this.calculatedCost = this.product.price * this.activeProduct.quantity;
-    this.costEvent.emit(this.calculatedCost);
   }
 
   isActiveProductDefined(
@@ -61,7 +54,7 @@ export class CartListComponent implements OnInit {
   deleteProduct(): void {
     this.activeProductService
       .deleteProductFromActiveProduct(this.activeProduct)
-      .subscribe();
+      .subscribe(() => (this.costEvent.emit(undefined)));
     let elem: HTMLElement | null = document.getElementById(
       'demo' + this.activeProduct.activeProductsId
     );

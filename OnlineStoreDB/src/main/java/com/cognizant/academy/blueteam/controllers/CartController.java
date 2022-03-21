@@ -71,9 +71,9 @@ public class CartController {
 	}
 
 	@CrossOrigin()
-	@GetMapping("/costs")
-	public Map<Integer, Double> getTotalCosts(@RequestParam int id) {
-		// returns a mapping of product ID's to summed costs
+	@GetMapping("/total_cost")
+	public double getTotalCosts(@RequestParam int id) {
+		// uses a mapping of product ID's to summed costs to calculate the total cost
 		Map<Integer, Double> results = new HashMap<Integer, Double>();
 		for (ActiveProducts activeProduct : this.activeProductsService
 				.findAllByCart(id)) {
@@ -84,6 +84,7 @@ public class CartController {
 						activeProduct.getQuantity() * product.get().getPrice());
 			}
 		}
-		return results;
+		System.out.println(results.values());
+		return results.values().stream().reduce(0.0, Double::sum);
 	}
 }

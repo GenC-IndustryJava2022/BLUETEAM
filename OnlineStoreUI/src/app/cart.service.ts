@@ -44,8 +44,15 @@ baseURL: string = 'http://localhost:8088/carts/';
 
 
   addCart(browserInfo:string):Observable<Cart>{
-    return this.httpClient.post<Cart>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
-    // this.httpClient.post<Cart>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
-    // .subscribe(response => {this.cart = response},(err) =>{console.log(err)})
+    return this.httpClient.post<Cart>(this.baseURL +"add?browserInfo=", browserInfo)
+  }
+
+  getTotalCost(cartId: number):Observable<number>{
+  return this.httpClient.get<number>(this.baseURL + 'total_cost?id='+ cartId).pipe(
+    map((response) => {
+      return response;
+    }),
+    catchError(this.handleError<any>())
+  );
   }
 }

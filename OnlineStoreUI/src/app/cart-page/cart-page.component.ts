@@ -28,8 +28,8 @@ export class CartPageComponent implements OnInit {
         this.isCartDefined()
           ? this.getActiveProducts()
           : (this.activeProducts = []);
+        this.getTotalCost();
       });
-      this.calculateTotalPrice();
   }
 
   ngOnInit(): void {}
@@ -42,8 +42,12 @@ export class CartPageComponent implements OnInit {
       });
   }
 
-  calculateTotalPrice() {
-    this.totalCost = 0;
+  getTotalCost() {
+    this.cartService.getTotalCost(this.cart.cartId)
+    .subscribe((response) => {
+      this.totalCost = response;
+    });
+
     // this.totalCost = this.activeProducts.reduce((pV, activeProduct) => prev + activeProduct.)
   }
 

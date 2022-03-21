@@ -30,7 +30,7 @@
       </form>
     </div>
     <div class="col-1">
-      ${{ calculatedCost }}
+      ${{ this.product.price * this.activeProduct.quantity }}
     </div>
     <div class="col-2">
       <button type="submit" class="btn btn-danger" (click)="deleteProduct()">
