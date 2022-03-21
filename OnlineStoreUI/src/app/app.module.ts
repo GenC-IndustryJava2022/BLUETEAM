@@ -18,6 +18,7 @@ import { CheckoutFormComponent } from './checkout-form/checkout-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EndPageComponent } from './end-page/end-page.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EndPageComponent } from './end-page/end-page.component';
     CartListComponent,
     CartItemComponent,
     CheckoutFormComponent,
-    EndPageComponent
+    EndPageComponent,
+    CheckoutPageComponent
   ],
   imports: [
     BrowserModule,

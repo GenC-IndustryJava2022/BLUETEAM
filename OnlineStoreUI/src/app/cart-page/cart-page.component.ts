@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ActiveProduct } from '../active-product';
 import { ActiveProductService } from '../active-product.service';
 import { Cart } from '../cart';
@@ -17,7 +17,8 @@ export class CartPageComponent implements OnInit {
   constructor(
     private routes: ActivatedRoute,
     private cartService: CartService,
-    private activeProductService: ActiveProductService
+    private activeProductService: ActiveProductService,
+    private router: Router
   ) {
     this.cartService
       .getCartById(parseInt(this.routes.snapshot.paramMap.get('id')!))
@@ -41,6 +42,10 @@ export class CartPageComponent implements OnInit {
 
   isCartDefined(maybeACart: Cart = this.cart): boolean {
     return Boolean(maybeACart);
+  }
+
+  redirectToCheckout(){
+    this.router.navigate(['/checkout'], { queryParams: {  } });
   }
 
   // adding cart is wack?
