@@ -1,0 +1,85 @@
+#container{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+#card{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%;
+}
+#phone{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%;
+}
+#country{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%;
+}
+#zip{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%;
+}
+#state{
+    width: 50%;
+    justify-content: left;
+    text-align: center;
+    margin-left: 75%;
+}
+#city{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%;
+}
+#cardnumber{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%;
+}
+#month{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%; 
+}
+#year{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-left: 75%;
+}

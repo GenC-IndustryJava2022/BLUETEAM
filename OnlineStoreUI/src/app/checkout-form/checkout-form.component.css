@@ -1,0 +1,30 @@
+#flex{
+display: flex;
+}
+#phone{
+    width: fit-content;
+}
+#country{
+    width: fit-content;
+}
+#zip{
+    width: fit-content;
+}
+#state{
+    width: fit-content;
+}
+#city{
+    width: fit-content;
+}
+#card{
+    width: fit-content; 
+}
+#cardnumber{
+    width: fit-content; 
+}
+#month{
+    width: fit-content; 
+}
+#year{
+    width: fit-content; 
+}

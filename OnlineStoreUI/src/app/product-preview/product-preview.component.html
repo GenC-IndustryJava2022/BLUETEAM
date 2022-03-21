@@ -1,0 +1,9 @@
+<div class="product-preview">
+  <a routerLink="/product/{{ product.productId }}">
+    <img class="product-image" alt="{{product.name}}" src="./assets/product-images/{{product.image}}">
+  </a>
+  <a class="product-name" routerLink="/product/{{ product.productId }}">{{
+    product.name
+  }}</a>
+  <div class="product-price">${{ product.price }}</div>
+</div>

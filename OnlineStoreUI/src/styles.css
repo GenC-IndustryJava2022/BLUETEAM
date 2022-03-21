@@ -1,0 +1,21 @@
+.quantity-input {
+  width: 15ex;
+}
+.product-image {
+  max-width: 100%;
+  height: auto;
+  background-color: cadetblue;
+}
+.product-price {
+  color: dimgray;
+}
+.product-name {
+  color: black;
+}
+/* .center {
+  align-items: center;
+  align-self: center;
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+} */

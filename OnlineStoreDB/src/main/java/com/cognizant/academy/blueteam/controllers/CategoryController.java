@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,15 +40,17 @@ public class CategoryController {
 		return "CategoryController [categoryService=" + categoryService + "]";
 	}
 
+	@CrossOrigin()
 	@GetMapping("/all")
 	public List<Category> getAllCategories() {
 		System.out.println("getting a whole bunch of data");
 		return categoryService.findAll();
 	}
 
+	@CrossOrigin()
 	@GetMapping("/find")
-	public Optional<Category> getOneCart(@RequestParam int Id) {
-		return categoryService.findOne(Id);
+	public Optional<Category> getOneCart(@RequestParam int id) {
+		return categoryService.findOne(id);
 	}
 	
 	@PostMapping("/add")
