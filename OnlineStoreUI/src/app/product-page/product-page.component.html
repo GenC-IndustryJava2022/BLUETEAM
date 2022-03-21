@@ -7,7 +7,8 @@
       <div class="col-4">
         <div class="product-name">{{ product.name }}</div>
         <div class="product-price">${{ product.price }}</div>
-
+        <div class="product-description">{{product.description}}</div>
+        <hr/>
         <form (ngSubmit)="addToCart()" [formGroup]="addForm">
           <div class="form-group">
             <label for="quantity">Quantity</label>
