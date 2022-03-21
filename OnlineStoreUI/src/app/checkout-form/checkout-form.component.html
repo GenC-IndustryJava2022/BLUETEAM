@@ -1,1 +1,82 @@
-<p>checkout-form works!</p>
+<form>
+    <div class="form-group" class="col-md-6 mb-3">
+      <label for="exampleInputEmail1" >Payment Method</label>
+     <select name="" id="" class="form-control" id="card">
+         <option>Visa</option>
+         <option>Mastercard</option>
+         <option>PayPal</option>
+         <option>American Express</option>
+         <option>Discover</option>
+     </select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="exampleInputPassword1">Card number</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Card Number" id="cardnumber">
+    </div>
+<div id="flex">
+   <div>
+    <label for="exampleInputPassword1">Expiration Date</label>
+    <select name="" id="month" class="form-control">
+        <option>--</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>
+</div>
+<div>
+    <label for="exampleInputPassword1"></label>
+    <select name="" id="year" class="form-control">
+        <option>----</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+        <option>2028</option>
+        <option>2029</option>
+        <option>2030</option>
+        <option>2031</option>
+        <option>2032</option>
+        <option>2033</option>
+        <option>2034</option>
+    </select>
+</div>
+</div>
+<br/>
+<div class="form-row">
+    <p>Delivery Location:</p>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">City</label>
+      <input type="text" class="form-control" id="validationDefault03" placeholder="City" required id="city">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault04">State/Province</label>
+      <input type="text" class="form-control" id="validationDefault04" placeholder="State" required id="state">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault05">Zip</label>
+      <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required id="zip">
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Country</label>
+        <input type="text" class="form-control" id="validationDefault04" placeholder="Country" required  id="country"> 
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault05">Phone Number</label>
+        <input type="tel" class="form-control" id="exampleInputPassword1" placeholder="Phone Number" id="phone">
+      </div>
+
+  </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
