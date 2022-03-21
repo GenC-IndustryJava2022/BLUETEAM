@@ -52,11 +52,15 @@
 </div>
 </div>
 <br/>
+<div class="col-md-6 mb-3">
+  <label for="validationDefault03">Security Code</label>
+  <input type="text" class="form-control" id="validationDefault03" placeholder="Security Code" required id="city">
+</div>
 <div class="form-row">
     <p>Delivery Location:</p>
     <div class="col-md-6 mb-3">
       <label for="validationDefault03">City</label>
-      <input type="text" class="form-control" id="validationDefault03" placeholder="City" required id="city">
+      <input type="text" class="form-control" id="validationDefault03" placeholder="City" required id="city" >
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault04">State/Province</label>
@@ -78,5 +82,5 @@
 
   </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="redirectToEnd()">Submit</button>
   </form>

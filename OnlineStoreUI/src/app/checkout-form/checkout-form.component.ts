@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-checkout-form',
   templateUrl: './checkout-form.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routes: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  redirectToEnd(){
+    this.router.navigate(['/end'], { queryParams: {  } });
+  }
+  
 
 }
