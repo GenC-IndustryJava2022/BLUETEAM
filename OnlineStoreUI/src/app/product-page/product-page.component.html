@@ -2,13 +2,16 @@
   <div *ngIf="isProductDefined()" class="container">
     <div class="row">
       <div class="col-8">
+        <br>
         <img
           class="product-image"
           alt="{{ product.name }}"
           src="./assets/product-images/{{ product.image }}"
         />
       </div>
+      
       <div class="col-4">
+        <br>
         <div class="product-name">{{ product.name }}</div>
         <div class="product-price">${{ product.price }}</div>
         <div class="product-description">{{ product.description }}</div>
@@ -25,6 +28,7 @@
                 value="1"
               />
             </div>
+            <br>
             <div class="form-group">
               <button type="submit" class="btn btn-success">
                 {{ buttonMessage }}

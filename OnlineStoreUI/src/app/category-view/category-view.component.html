@@ -1,5 +1,6 @@
 <div class="category-bar">{{ category.name | titlecase }}</div>
 <!-- TODO: use ngIf to display message if there are no products -->
+<br>
 <div *ngIf="isProductsDefined() else spinner" class="center">
   <app-products-list [products]="products"></app-products-list>
 </div>
