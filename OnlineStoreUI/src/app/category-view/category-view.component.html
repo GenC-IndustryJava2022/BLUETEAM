@@ -1,4 +1,4 @@
-<div class="category-bar">{{ category.name | titlecase }}</div>
+<div class="category-bar"><strong>{{ category.name | titlecase }}</strong></div>
 <!-- TODO: use ngIf to display message if there are no products -->
 <br>
 <div *ngIf="isProductsDefined() else spinner" class="center">

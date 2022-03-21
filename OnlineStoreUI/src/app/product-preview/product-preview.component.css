@@ -2,4 +2,8 @@
   height: auto;
   border: 0.25ex;
 }
+.product-image{
+  height: 250px;
+  width: 250;
+}
 
