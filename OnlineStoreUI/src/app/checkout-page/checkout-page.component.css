@@ -43,11 +43,8 @@
 }
 #state{
     width: 50%;
-    justify-content: center;
+    justify-content: left;
     text-align: center;
-    align-items: center;
-    align-content: center;
-    align-self: center;
     margin-left: 75%;
 }
 #city{
