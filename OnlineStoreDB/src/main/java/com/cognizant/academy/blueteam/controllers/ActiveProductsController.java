@@ -65,8 +65,14 @@ public class ActiveProductsController {
 	@CrossOrigin()
 	@PostMapping("/add")
 	public ActiveProducts addActiveProducts(@RequestBody ActiveProducts activeProducts) {
-		activeProductsService.add(activeProducts);
-		return activeProducts;
+		return activeProductsService.add(activeProducts);
+	}
+
+	@CrossOrigin()
+	@PostMapping("/update")
+	public ActiveProducts updateActiveProducts(@RequestBody ActiveProducts activeProducts) {
+		System.out.println("updating an activeProduct: " + activeProducts);
+		return activeProductsService.save(activeProducts);
 	}
 	
 	@CrossOrigin()

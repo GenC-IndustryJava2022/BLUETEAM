@@ -18,13 +18,14 @@
         <div class="product-description">{{ product.description }}</div>
         <hr />
         <!-- <div *ngIf="!isInCart; else alreadyInCart" class="center"> -->
-          <form (ngSubmit)="addToCart()" [formGroup]="addForm">
+          <form (ngSubmit)="addToCart()">
             <div class="form-group">
               <label for="quantity">Quantity</label>
               <input
+                name="'quantity"
                 type="number"
                 class="form-control quantity-input"
-                formControlName="quantity"
+                [(ngModel)]="quantity"
                 min="1"
                 value="1"
               />
