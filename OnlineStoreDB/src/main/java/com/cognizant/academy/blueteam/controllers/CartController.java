@@ -1,6 +1,8 @@
 package com.cognizant.academy.blueteam.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +15,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cognizant.academy.blueteam.models.ActiveProducts;
 import com.cognizant.academy.blueteam.models.Cart;
+import com.cognizant.academy.blueteam.models.Product;
+import com.cognizant.academy.blueteam.services.ActiveProductsService;
 import com.cognizant.academy.blueteam.services.CartService;
+import com.cognizant.academy.blueteam.services.ProductService;
 
 @RestController
 @RequestMapping("carts")
 public class CartController {
 	@Autowired
 	private CartService cartService;
+	@Autowired
+	private ProductService productService;
+	@Autowired
+	private ActiveProductsService activeProductsService;
 
 	public CartController(CartService cartService) {
 		super();
@@ -54,14 +64,26 @@ public class CartController {
 	@CrossOrigin()
 	@PostMapping("/add")
 	public Cart addCart(@RequestParam String browserInfo) {
-		
-		Cart newcart = cartService.add(new Cart(0,browserInfo));
+
+		Cart newcart = cartService.add(new Cart(0, browserInfo));
 		System.out.println(newcart);
 		return newcart;
-	
 	}
-	
-	
-	
-//	@DeleteMapping("/remove")
+
+	@CrossOrigin()
+	@GetMapping("/costs")
+	public Map<Integer, Double> getTotalCosts(@RequestParam int id) {
+		// returns a mapping of product ID's to summed costs
+		Map<Integer, Double> results = new HashMap<Integer, Double>();
+		for (ActiveProducts activeProduct : this.activeProductsService
+				.findAllByCart(id)) {
+			Optional<Product> product = this.productService
+					.findOne(activeProduct.getProductId());
+			if (product.isPresent()) {
+				results.put(product.get().getProductId(),
+						activeProduct.getQuantity() * product.get().getPrice());
+			}
+		}
+		return results;
+	}
 }
