@@ -2,29 +2,39 @@
   <div *ngIf="isProductDefined()" class="container">
     <div class="row">
       <div class="col-8">
-        <img class="product-image" alt="{{product.name}}" src="./assets/product-images/{{product.image}}">
+        <img
+          class="product-image"
+          alt="{{ product.name }}"
+          src="./assets/product-images/{{ product.image }}"
+        />
       </div>
       <div class="col-4">
         <div class="product-name">{{ product.name }}</div>
         <div class="product-price">${{ product.price }}</div>
-
-        <form (ngSubmit)="addToCart()" [formGroup]="addForm">
-          <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input
-              type="number"
-              class="form-control quantity-input"
-              formControlName="quantity"
-              min="1"
-              value="1"
-            />
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-success">
-              {{ buttonMessage }}
-            </button>
-          </div>
-        </form>
+        <div class="product-description">{{ product.description }}</div>
+        <hr />
+        <!-- <div *ngIf="!isInCart; else alreadyInCart" class="center"> -->
+          <form (ngSubmit)="addToCart()" [formGroup]="addForm">
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input
+                type="number"
+                class="form-control quantity-input"
+                formControlName="quantity"
+                min="1"
+                value="1"
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">
+                {{ buttonMessage }}
+              </button>
+            </div>
+          </form>
+        <!-- </div> -->
+        <!-- <ng-template #alreadyInCart>
+          <a class="btn btn-primary btn-lg" [href]="goToCart()" role="button">Already in your cart</a>
+        </ng-template> -->
       </div>
     </div>
   </div>
