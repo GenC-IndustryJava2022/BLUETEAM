@@ -13,6 +13,7 @@ import { CartService } from '../cart.service';
 export class CartPageComponent implements OnInit {
   cart!: Cart;
   activeProducts!: ActiveProduct[];
+  totalCost: number = 0;
 
   constructor(
     private routes: ActivatedRoute,
@@ -28,6 +29,7 @@ export class CartPageComponent implements OnInit {
           ? this.getActiveProducts()
           : (this.activeProducts = []);
       });
+      this.calculateTotalPrice();
   }
 
   ngOnInit(): void {}
@@ -38,6 +40,11 @@ export class CartPageComponent implements OnInit {
       .subscribe((response) => {
         this.activeProducts = response;
       });
+  }
+
+  calculateTotalPrice() {
+    this.totalCost = 0;
+    // this.totalCost = this.activeProducts.reduce((pV, activeProduct) => prev + activeProduct.)
   }
 
   isCartDefined(maybeACart: Cart = this.cart): boolean {

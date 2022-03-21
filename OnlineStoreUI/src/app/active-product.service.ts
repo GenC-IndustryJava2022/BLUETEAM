@@ -55,9 +55,16 @@ export class ActiveProductService {
       this.baseURL + 'add',
       newActiveProduct,
       this.postHeader
-    ); //, this.postHeader)
-    // this.httpClient.post<ActiveProduct>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
-    // .subscribe(response => {this.activeProduct = response},(err) =>{console.log(err)})
+    );
+  }
+
+  updateActiveProduct(activeProduct: ActiveProduct) {
+    console.log("updating an active product...");
+    return this.httpClient.post<ActiveProduct>(
+      this.baseURL + 'update',
+      activeProduct,
+      this.postHeader
+    );
   }
 
   deleteProductFromActiveProduct(newActiveProduct: ActiveProduct) {
@@ -66,11 +73,6 @@ export class ActiveProductService {
       this.baseURL + 'delete',
       newActiveProduct,
       this.postHeader
-    ); //, this.postHeader)
-    // this.httpClient.post<ActiveProduct>(this.baseURL +"add?browserInfo=", browserInfo) //, this.postHeader)
-    // .subscribe(response => {this.activeProduct = response},(err) =>{console.log(err)})
+    );
   }
-
-
-
 }

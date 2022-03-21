@@ -1,13 +1,19 @@
 <div *ngIf="isCartDefined()" class="container">
-  <div class="row">
-    <div class="col-9" *ngFor="let activeProduct of activeProducts">
-      <app-cart-list [activeProduct]="activeProduct"></app-cart-list>
+  <div *ngFor="let activeProduct of activeProducts">
+    <app-cart-list [activeProduct]="activeProduct" (costEvent)="calculateTotalPrice()"></app-cart-list>
+  </div>
+  <hr/>
+  <div class="">
+    <div class="">
+      Total: ${{totalCost}}
     </div>
+    <button
+      type="submit"
+      class="btn btn-success"
+      id="checkout"
+      (click)="redirectToCheckout()"
+    >
+      Checkout!
+    </button>
   </div>
-  <div>
-  </div>
-  <button type="submit" class="btn btn-success" id="checkout" (click)="redirectToCheckout()">
-    Checkout!
-  </button>
 </div>
-

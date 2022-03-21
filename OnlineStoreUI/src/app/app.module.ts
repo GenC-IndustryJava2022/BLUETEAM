@@ -13,7 +13,6 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CartListComponent } from './cart-list/cart-list.component';
-import { CartItemComponent } from './cart-item/cart-item.component';
 import { CheckoutFormComponent } from './checkout-form/checkout-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +32,6 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
     ProductPageComponent,
     CartPageComponent,
     CartListComponent,
-    CartItemComponent,
     CheckoutFormComponent,
     EndPageComponent,
     CheckoutPageComponent

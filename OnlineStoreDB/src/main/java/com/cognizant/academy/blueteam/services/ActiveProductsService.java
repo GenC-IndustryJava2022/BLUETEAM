@@ -69,7 +69,11 @@ public class ActiveProductsService {
 		}
 		return activeProductsRepository.save(activeProducts);
 	}
-
+	
+	public ActiveProducts save(ActiveProducts activeProducts) {
+		System.out.println("saving an activeProduct: " + activeProducts);
+		return activeProductsRepository.save(activeProducts);
+	}
 
 	public void delete(ActiveProducts activeProducts) {
 		activeProductsRepository.delete(activeProducts);

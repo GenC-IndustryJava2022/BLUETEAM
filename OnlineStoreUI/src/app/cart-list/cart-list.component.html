@@ -15,7 +15,7 @@
       }}</a>
       <div class="product-price">${{ product.price }}</div>
     </div>
-    <div class="col-3">
+    <div class="col-2">
       <form name="quantityForm">
         <label for="quantity">Quantity</label>
         <input
@@ -26,17 +26,16 @@
           (input)="updateQuantity()"
           min="1"
         />
-        <!-- TODO add a remove button -->
         <!-- TODO don't allow empty value -->
       </form>
     </div>
-    <div class="col-2">
-      <button type="submit" class="btn btn-success" (click)="deleteProduct()">
-        {{ buttonMessage }}
-      </button>
+    <div class="col-1">
+      ${{ calculatedCost }}
     </div>
     <div class="col-2">
-      ${{ product.price * activeProduct.quantity }}
+      <button type="submit" class="btn btn-danger" (click)="deleteProduct()">
+        {{ buttonMessage }}
+      </button>
     </div>
   </div>
 </div>
