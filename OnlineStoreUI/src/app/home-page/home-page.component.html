@@ -1,1 +1,4 @@
-<p>home-page works!</p>
+<div *ngFor="let category of categories">
+<app-category-view [category]="category"></app-category-view>
+<hr/>
+</div>

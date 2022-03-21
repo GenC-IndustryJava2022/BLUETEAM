@@ -1,1 +1,12 @@
-<p>search-field works!</p>
+<form class="navbar-form form-inline">
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search"
+      [(ngModel)]="query"
+      name="search"
+      (input)="redirectToSearch()"
+    />
+  </div>
+</form>

@@ -46,6 +46,7 @@ public class ProductService {
 	}
 	
 	public List<Product> sortByPrice(List<Product> list){
+		
 	return list.stream().sorted((x,y)->Double.compare(x.getPrice(),y.getPrice())).collect(Collectors.toList());
 
 	}
@@ -58,12 +59,32 @@ public class ProductService {
 		return productRepository.findById(id);
 	}
 	
+	public List<Product> findAllByCategory(int categoryId){
+		List<Product> all = productRepository.findAll();
+		List<Product> returning=all.stream()
+		.filter(x->x.getCategoryId()==categoryId)
+		.collect(Collectors.toList());
+		return returning;
+	}
+	
+	public List<Product> findAllByCategory(Category category){
+		return findAllByCategory(category.getCategoryId());
+	}
+	
 	public List<Product> findAllByCategoryAndPriceRange(Category category, double min, double max){
 	
 		List<Product> all = productRepository.findAll();
 		List<Product> returning=all.stream()
 		.filter(x->x.getCategoryId()==category.getCategoryId())
 		.filter(x->x.getPrice()>=min&&x.getPrice()<=max)
+		.collect(Collectors.toList());
+		return returning;
+	}
+
+	public List<Product> findAllBySearch(String s) {
+		List<Product> all = productRepository.findAll();
+		List<Product> returning=all.stream()
+		.filter(x->x.getName().toLowerCase().contains(s.toLowerCase())|| x.getDescription().toLowerCase().contains(s.toLowerCase()))
 		.collect(Collectors.toList());
 		return returning;
 	}

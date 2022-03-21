@@ -1,11 +1,14 @@
+-- remove ALL existing tables
+-- DROP table blueteam_shop.active_products, cart,product,category
+
 CREATE TABLE CATEGORY(
-CATEGORY_ID int,
+CATEGORY_ID int AUTO_INCREMENT,
 NAME varchar(250) not null,
 HEADER_IMAGE varchar(250),
 primary key (CATEGORY_ID)
 );
 CREATE TABLE PRODUCT(
-PRODUCT_ID int,
+PRODUCT_ID int AUTO_INCREMENT,
 NAME varchar(250) not null,
 PRICE double not null,
 IMAGE varchar(250),
@@ -15,12 +18,12 @@ primary key (PRODUCT_ID),
 foreign key (CATEGORY_ID) references CATEGORY(CATEGORY_ID)
 );
 CREATE TABLE CART(
-CART_ID int,
+CART_ID int AUTO_INCREMENT,
 BROWSER_INFO varchar(250) not null,
 primary key (CART_ID)
 );
 CREATE TABLE ACTIVE_PRODUCTS(
-ACTIVE_PRODUCTS_ID int,
+ACTIVE_PRODUCTS_ID int AUTO_INCREMENT,
 CART_ID int not null,
 PRODUCT_ID int not null,
 QUANTITY int not null,

@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Product{
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="PRODUCT_ID")
 	private int productId;
 	@Column(name="NAME")

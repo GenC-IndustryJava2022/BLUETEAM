@@ -1,1 +1,11 @@
-<p>category-view works!</p>
+<div class="category-bar"><strong>{{ category.name | titlecase }}</strong></div>
+<!-- TODO: use ngIf to display message if there are no products -->
+<br>
+<div *ngIf="isProductsDefined() else spinner" class="center">
+  <app-products-list [products]="products"></app-products-list>
+</div>
+<ng-template #spinner>
+    <div class="spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+</ng-template>
