@@ -71,6 +71,7 @@ export class ProductPageComponent implements OnInit {
     if ((error.status = 409)) {
       console.log('already in cart');
       this.isInCart = true;
+      this.goToCart();
     } else {
       console.log('some error happened');
     }
